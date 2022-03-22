@@ -8,7 +8,7 @@ public class CoinFlip {
 		
 		String headsOrTailsGuess;
 		int numberOfFlips;
-		int correctCount;
+		int correctCount = 0;
 		int headsCount = 0;
 		int tailsCount = 0;
 		String s1 = "heads";
@@ -51,22 +51,28 @@ public class CoinFlip {
 			if (num == 0) {
 				System.out.println("Heads");
 				headsCount++; //consider Heads++
+				correctCount = headsCount;
 				} else if (num == 1) {
 				System.out.println("Tails");
 				tailsCount++;
+				correctCount = tailsCount;
 				}
 			
-			double correctPercent;
-			var correctPercentHeads = ((double)headsCount/numberOfFlips*100);	
-			var correctPercentTails = ((double)tailsCount/numberOfFlips*100);
 			
-			if(coinSideHeads == true && headsCount > tailsCount || headsCount < tailsCount || headsCount == tailsCount) {
+			
+			/*if(coinSideHeads == true && headsCount > tailsCount || headsCount < tailsCount || headsCount == tailsCount) {
 				System.out.println("Your guess " + headsOrTailsGuess + " came up " + headsCount + " time(s). That's " + correctPercentHeads + "%.");
 			} else if (coinSideHeads == false && headsCount > tailsCount || headsCount < tailsCount || headsCount == tailsCount) {
 				System.out.println("Your guess " + headsOrTailsGuess + " came up " + tailsCount + " time(s). That's " + correctPercentTails + "%.");
-			}
+			}*/
+			
 		}
-		
+		double correctPercent;
+		var correctPercentHeads = ((double)headsCount/numberOfFlips*100);	
+		var correctPercentTails = ((double)tailsCount/numberOfFlips*100);
+		var correctPercentNew= ((double)correctCount/numberOfFlips*100);
+		System.out.println("Your guess " + headsOrTailsGuess + " came up " + correctCount + " time(s). That's " + correctPercentNew + "%.");
+
 		/*if(headsCount > tailsCount && coinSideHeads == true) {
 		System.out.println("Your guess " + headsOrTailsGuess + " came up " + headsCount + " time(s). That's " + correctPercentHeads + "%.");
 	} else if(headsCount < tailsCount && coinSideHeads == false) {
